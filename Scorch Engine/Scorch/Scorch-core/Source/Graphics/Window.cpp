@@ -100,6 +100,13 @@ namespace Graphics {
 	/* gets event and swaps buffers. */
 	void Window::Update()
 	{
+		// Check for Open GL syntax error and print if there is.
+		GLenum error = glGetError();
+		if (error != GL_NO_ERROR)
+		{
+			std::cout << "OpenGL error: " << error << std::endl;
+		}
+
 		glfwPollEvents();
 		
 		/* swap buffers because double buffering. */
