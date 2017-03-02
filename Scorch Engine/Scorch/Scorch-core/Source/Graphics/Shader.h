@@ -6,17 +6,20 @@
 #include <GL/glew.h>
 
 #include "../Utilities/FileUtils.h"
+#include "../Math/Math.h"
 
 namespace Scorch
 {
 namespace Graphics
 {
+	using namespace Math;
+
 	/* manages loading shader files and sending data to  the
 		shader and enabling and disabling shaders. Also stores 
 		uniform locations. */
 	class Shader
 	{
-	private:
+	public:
 		GLuint m_shaderID;
 		const char* m_vertPath;
 		const char* m_fragPath;
@@ -28,8 +31,16 @@ namespace Graphics
 		void Enable() const;
 		void Disable() const;
 
+		void setUniformInt(const GLchar* name, const int& num);
+		void setUniformFloat(const GLchar* name, const float& f);
+		void setUniformVec2(const GLchar* name, const Vector2& v);
+		void setUniformVec3(const GLchar* name, const Vector3& v);
+		void setUniformVec4(const GLchar* name, const Vector4& v);
+		void setUniformMat4(const GLchar* name, const Matrix4x4& matrix);
+
 	private:
 		GLuint load();
+		GLint getUniformLocation(const GLchar* name);
 	};
 
 

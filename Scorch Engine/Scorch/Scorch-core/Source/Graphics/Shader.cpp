@@ -89,5 +89,35 @@ namespace Graphics
 
 		return program;
 	}
-}
-}
+
+	GLint Shader::getUniformLocation(const GLchar* name)
+	{
+		return glGetUniformLocation(m_shaderID, name);
+	}
+	void Shader::setUniformInt(const GLchar* name, const int& num)
+	{
+		glUniform1i(getUniformLocation(name), num);
+	}
+	void Shader::setUniformFloat(const GLchar* name, const float& f)
+	{
+		glUniform1f(getUniformLocation(name), f);
+	}
+	void Shader::setUniformVec2(const GLchar* name, const Vector2& v)
+	{
+		glUniform2f(getUniformLocation(name), v.m_x, v.m_y);
+	}
+	void Shader::setUniformVec3(const GLchar* name, const Vector3& v)
+	{
+		glUniform3f(getUniformLocation(name), v.m_x, v.m_y, v.m_z);
+	}
+	void Shader::setUniformVec4(const GLchar* name, const Vector4& v)
+	{
+		glUniform4f(getUniformLocation(name), v.m_x, v.m_y, v.m_z, v.m_w);
+	}
+	void Shader::setUniformMat4(const GLchar* name, const Matrix4x4& matrix)
+	{
+		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.m[0]);
+	}
+
+}; // Scorch
+}; // Graphics
