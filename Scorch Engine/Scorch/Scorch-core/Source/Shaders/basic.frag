@@ -13,7 +13,7 @@ in DATA
 
 void main()
 {
-	float intensity = 1.0/length(fs_in.pos.xy - m_lightPos);
+	float intensity = 2.0/length(fs_in.pos.xy - m_lightPos);
 	//color = m_color * intensity;
 	color = fs_in.col * intensity;
 }

@@ -28,6 +28,24 @@ namespace Graphics
 		glUseProgram(0);
 	}
 
+	bool Shader::checkShaderCompileError(GLuint shader)
+	{
+		GLint success;
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (success == GL_FALSE)
+		{
+			GLint logSize = 0;
+			glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logSize);
+			std::vector<GLchar> errorLog(logSize);
+			glGetShaderInfoLog(shader, logSize, &logSize, &errorLog[0]);
+			std::cout << &errorLog[0] << std::endl;
+			std::cout << "FAILED to compile vertex shader." << std::endl;
+			glDeleteShader(shader);
+			return false;
+		}
+		return true;
+	}
+
 	GLuint Shader::load()
 	{
 		// A program object is an object to which shader objects can be attached. 
@@ -44,46 +62,24 @@ namespace Graphics
 		// compile vertex shader
 		glShaderSource(vShader, 1, &vsCharStr, NULL);
 		glCompileShader(vShader);
-		GLint success;
-		glGetShaderiv(vShader, GL_COMPILE_STATUS, &success);
-		if (success == GL_FALSE)
-		{
-			GLint logSize = 0;
-			glGetShaderiv(vShader, GL_INFO_LOG_LENGTH, &logSize);
-			std::vector<GLchar> errorLog(logSize);
-			glGetShaderInfoLog(vShader, logSize, &logSize, &errorLog[0]);
-			std::cout << &errorLog[0] << std::endl;
-			std::cout << "FAILED to compile vertex shader." << std::endl;
-			glDeleteShader(vShader);
+		if (!checkShaderCompileError(vShader))
 			return 0;
-		}
 
 		// compile fragment shader.
 		glShaderSource(fShader, 1, &fsCharStr, NULL);
 		glCompileShader(fShader);
-		success;
-		glGetShaderiv(fShader, GL_COMPILE_STATUS, &success);
-		if (success == GL_FALSE)
-		{
-			GLint logSize = 0;
-			glGetShaderiv(fShader, GL_INFO_LOG_LENGTH, &logSize);
-			std::vector<GLchar> errorLog(logSize);
-			glGetShaderInfoLog(fShader, logSize, &logSize, &errorLog[0]);
-			std::cout << &errorLog[0] << std::endl;
-			std::cout << "FAILED to compile fragment shader." << std::endl;
-			glDeleteShader(fShader);
+		if (!checkShaderCompileError(fShader))
 			return 0;
-		}
 
-		// attach shaders to program
+		// attach shaders to program.
 		glAttachShader(program, vShader);
 		glAttachShader(program, fShader);
 
-		// link program
+		// link program.
 		glLinkProgram(program);
 		glValidateProgram(program);
 
-		// delete shaders since they are not needed anymore
+		// delete shaders since they are not needed anymore.
 		glDeleteShader(vShader);
 		glDeleteShader(fShader);
 

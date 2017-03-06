@@ -17,7 +17,7 @@ namespace Graphics
 		std::vector<Buffer*> m_buffers;
 	public:
 		VertexArray();
-		~VertexArray();
+		virtual ~VertexArray();
 
 		void AddBuffer(Buffer* buffer, GLuint index);
 		void Bind() const;

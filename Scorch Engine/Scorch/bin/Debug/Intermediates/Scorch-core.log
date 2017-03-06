@@ -1,5 +1,12 @@
 ﻿  Main.cpp
 d:\workspaces\game-engine-project\scorch engine\scorch\scorch-core\source\math\matrix4x4.h(137): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 d:\workspaces\game-engine-project\scorch engine\scorch\scorch-core\source\math\matrix4x4.h(163): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\workspaces\game-engine-project\scorch engine\scorch\scorch-core\main.cpp(39): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Compiling...
+  Batch2DRenderer.cpp
+d:\workspaces\game-engine-project\scorch engine\scorch\scorch-core\source\math\matrix4x4.h(137): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\workspaces\game-engine-project\scorch engine\scorch\scorch-core\source\math\matrix4x4.h(163): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   Scorch-core.vcxproj -> D:\Workspaces\Game-Engine-Project\Scorch Engine\Scorch\bin\Debug\Scorch-core.exe
   Scorch-core.vcxproj -> D:\Workspaces\Game-Engine-Project\Scorch Engine\Scorch\bin\Debug\Scorch-core.pdb (Partial PDB)

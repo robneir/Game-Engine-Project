@@ -13,6 +13,7 @@ namespace Graphics
 		GLuint m_count;
 	public:
 		IndexBuffer(GLushort* data, GLsizei count);
+		~IndexBuffer();
 
 		void Bind() const;
 

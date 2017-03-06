@@ -39,6 +39,7 @@ namespace Graphics
 		void setUniformMat4(const GLchar* name, const Matrix4x4& matrix);
 
 	private:
+		bool checkShaderCompileError(GLuint shader);
 		GLuint load();
 		GLint getUniformLocation(const GLchar* name);
 	};
