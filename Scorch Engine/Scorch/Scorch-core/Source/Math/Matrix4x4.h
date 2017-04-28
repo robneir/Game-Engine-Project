@@ -78,6 +78,17 @@ namespace Math
 			return res;
 		}
 
+		void operator=(const Matrix4x4& other)
+		{
+			for (int y = 0; y < 4; y++)
+			{
+				for (int x = 0; x < 4; x++)
+				{
+					m[y][x] = other.m[y][x];
+				}
+			}
+		}
+
 		void operator*=(const Matrix4x4& other)
 		{
 			for (int y = 0; y < 4; y++)

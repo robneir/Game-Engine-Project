@@ -1,7 +1,7 @@
 #ifndef _SPRITE_
 #define _SPRITE_
 
-#include "Renderable2D.h"
+#include "Rendering/Renderable2D.h"
 
 namespace Scorch
 {

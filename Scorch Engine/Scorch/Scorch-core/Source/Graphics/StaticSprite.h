@@ -1,7 +1,7 @@
 #ifndef _STATIC_SPRITE_
 #define _STATIC_SPRITE_
 
-#include "Renderable2D.h"
+#include "Rendering/Renderable2D.h"
 #include "../Math/Vector4.h"
 
 namespace Scorch

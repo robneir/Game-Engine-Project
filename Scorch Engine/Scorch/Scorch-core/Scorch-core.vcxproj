@@ -20,25 +20,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\Graphics\Batch2DRenderer.cpp" />
+    <ClCompile Include="Source\Graphics\Layers\FlatLayer.cpp" />
+    <ClCompile Include="Source\Graphics\Rendering\Batch2DRenderer.cpp" />
     <ClCompile Include="Source\Graphics\Buffers\Buffer.cpp" />
     <ClCompile Include="Source\Graphics\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="Source\Graphics\Buffers\VertexArray.cpp" />
-    <ClCompile Include="Source\Graphics\Simple2DRenderer.cpp" />
+    <ClCompile Include="Source\Graphics\Layers\Layer.cpp" />
+    <ClCompile Include="Source\Graphics\Rendering\Simple2DRenderer.cpp" />
     <ClCompile Include="Source\Graphics\Shader.cpp" />
     <ClCompile Include="Source\Graphics\Sprite.cpp" />
     <ClCompile Include="Source\Graphics\StaticSprite.cpp" />
     <ClCompile Include="Source\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Graphics\Batch2DRenderer.h" />
+    <ClInclude Include="Source\Graphics\Layers\FlatLayer.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Batch2DRenderer.h" />
     <ClInclude Include="Source\Graphics\Buffers\Buffer.h" />
     <ClInclude Include="Source\Graphics\Buffers\IndexBuffer.h" />
     <ClInclude Include="Source\Graphics\Buffers\VertexArray.h" />
-    <ClInclude Include="Source\Graphics\Renderable2D.h" />
-    <ClInclude Include="Source\Graphics\Renderer2D.h" />
+    <ClInclude Include="Source\Graphics\Layers\Layer.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Renderable2D.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Renderer2D.h" />
     <ClInclude Include="Source\Graphics\Shader.h" />
-    <ClInclude Include="Source\Graphics\Simple2DRenderer.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Simple2DRenderer.h" />
     <ClInclude Include="Source\Graphics\Sprite.h" />
     <ClInclude Include="Source\Graphics\StaticSprite.h" />
     <ClInclude Include="Source\Graphics\Window.h" />
@@ -50,6 +54,7 @@
     <ClInclude Include="Source\Math\Vector3.h" />
     <ClInclude Include="Source\Math\Vector4.h" />
     <ClInclude Include="Source\Utilities\FileUtils.h" />
+    <ClInclude Include="Source\Utilities\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\basic.frag" />
@@ -115,6 +120,12 @@
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
+    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLEW\lib;$(SolutionDir)Dependencies\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -156,10 +167,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

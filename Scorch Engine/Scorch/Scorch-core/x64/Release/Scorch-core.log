@@ -1,0 +1,20 @@
+﻿  Main.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\Source/Graphics/Window.h(5): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Batch2DRenderer.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Buffers/Buffer.h(4): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  Buffer.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\buffers\Buffer.h(4): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  IndexBuffer.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\buffers\IndexBuffer.h(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  VertexArray.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\buffers\VertexArray.h(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Simple2DRenderer.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Buffers/Buffer.h(4): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  Shader.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Shader.h(6): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Sprite.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Buffers/Buffer.h(4): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  StaticSprite.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Buffers/Buffer.h(4): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  Window.cpp
+d:\workspaces\game-engine-project\game-engine-project\scorch engine\scorch\scorch-core\source\graphics\Window.h(5): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory

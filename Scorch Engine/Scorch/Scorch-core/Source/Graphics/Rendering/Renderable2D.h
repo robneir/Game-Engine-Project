@@ -1,11 +1,11 @@
 #ifndef  _RENDERABLE_2D_
 #define  _RENDERABLE_2D_ 
 
-#include "Buffers/Buffer.h"
-#include "Buffers/VertexArray.h"
-#include "Buffers/IndexBuffer.h"
-#include "Shader.h"
-#include "../Math/Math.h"
+#include "../Buffers/Buffer.h"
+#include "../Buffers/VertexArray.h"
+#include "../Buffers/IndexBuffer.h"
+#include "../Shader.h"
+#include "../../Math/Math.h"
 
 namespace Scorch 
 {
@@ -16,8 +16,8 @@ namespace Graphics
 	struct VertexData
 	{
 		Vector3 m_Position;
-		Vector4 m_Color;
-
+		//Vector4 m_Color;
+		unsigned int m_Color;
 	};
 
 	class Renderable2D

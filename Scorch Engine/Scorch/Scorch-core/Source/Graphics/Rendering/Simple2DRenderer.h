@@ -5,7 +5,7 @@
 
 #include "Renderer2D.h"
 #include "Renderable2D.h"
-#include "StaticSprite.h"
+#include "../StaticSprite.h"
 
 namespace Scorch
 {
@@ -17,7 +17,7 @@ namespace Graphics
 		std::deque<const StaticSprite*> m_RenderQueue;
 	public:
 		void Submit(const Renderable2D* renderable2D) override;
-		void Draw() override;
+		void Flush() override;
 	};
 }
 }

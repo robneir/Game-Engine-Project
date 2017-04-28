@@ -1,8 +1,11 @@
 #ifndef _BATCH_2D_RENDERER_
 #define _BATCH_2D_RENDERER_
 
+#include <cstddef>
+
 #include "Renderer2D.h"
-#include "Buffers/IndexBuffer.h"
+#include "../Buffers/IndexBuffer.h"
+
 
 namespace Scorch
 {
@@ -28,10 +31,10 @@ namespace Graphics
 	public:
 		Batch2DRenderer();
 		~Batch2DRenderer();
-		void Begin();
-		void End();
+		void Begin() override;
+		void End() override;
 		void Submit(const Renderable2D* renderable2D) override;
-		void Draw() override;
+		void Flush() override;
 	private:
 		void init();
 	};

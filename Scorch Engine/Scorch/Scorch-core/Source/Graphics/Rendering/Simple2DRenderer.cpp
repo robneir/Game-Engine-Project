@@ -9,7 +9,7 @@ namespace Graphics
 		m_RenderQueue.push_back((StaticSprite*)renderable2D);
 	}
 
-	void Simple2DRenderer::Draw()
+	void Simple2DRenderer::Flush()
 	{
 		while (!m_RenderQueue.empty())
 		{

@@ -79,6 +79,8 @@ namespace Graphics {
 		glfwSetCursorPosCallback(m_window, cursor_position_callback);
 		// setup mouse callbacks.
 		glfwSetMouseButtonCallback(m_window, mouse_button_callback);
+		// disable vsync
+		glfwSwapInterval(0);
 
 		// initialize glew
 		if (glewInit() != GLEW_OK)

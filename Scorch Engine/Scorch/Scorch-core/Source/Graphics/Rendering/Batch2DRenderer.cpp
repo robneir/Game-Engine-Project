@@ -35,7 +35,7 @@ namespace Graphics
 
 		// tell GPU how to handle data
 		glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)0);
-		glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)(3 * sizeof(GLfloat)));
+		glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDERER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::m_Color)));
 
 		// unbind VBO
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -74,21 +74,27 @@ namespace Graphics
 		const Vector4 color = renderable2D->getColor();
 		const Vector2 size = renderable2D->getSize();
 
+		int r = color.m_x * 255.0f;
+		int g = color.m_y * 255.0f;
+		int b = color.m_z * 255.0f;
+		int a = color.m_w * 255.0f;
+		unsigned int c = a << 24 | b << 16 | g << 8 | r;
+
 		// bottom left
 		m_Buffer->m_Position = pos; 
-		m_Buffer->m_Color = color;
+		m_Buffer->m_Color = c;
 		m_Buffer++;
 		// top left
 		m_Buffer->m_Position = Vector3(pos.m_x, pos.m_y + size.m_y, pos.m_z);
-		m_Buffer->m_Color = color;
+		m_Buffer->m_Color = c;
 		m_Buffer++;
 		// top right
 		m_Buffer->m_Position = Vector3(pos.m_x + size.m_x, pos.m_y + size.m_y, pos.m_z);
-		m_Buffer->m_Color = color;
+		m_Buffer->m_Color = c;
 		m_Buffer++;
 		// bottom right
 		m_Buffer->m_Position = Vector3(pos.m_x + size.m_x, pos.m_y, pos.m_z);
-		m_Buffer->m_Color = color;
+		m_Buffer->m_Color = c;
 		m_Buffer++;
 
 		m_IndexCount += 6;
@@ -100,7 +106,7 @@ namespace Graphics
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	void Batch2DRenderer::Draw()
+	void Batch2DRenderer::Flush()
 	{
 		glBindVertexArray(m_VAO);
 		m_IBO->Bind();
